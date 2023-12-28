@@ -15,6 +15,8 @@ info:
     url: https://opencagedata.com/opencagelogo-green.png
 servers:
   - url: https://api.opencagedata.com/geocode/v1
+security:
+  - ApiKeyAuth: []
 externalDocs:
   description: OpenCage Geocoder Website
   url: https://opencagedata.com/api
@@ -25,7 +27,6 @@ paths:
       operationId: get-json
       parameters:
         - $ref: '#/components/parameters/query'
-        - $ref: '#/components/parameters/key'
         - name: abbrv
           in: query
           description: when true we attempt to abbreviate the formatted field of results.
@@ -180,7 +181,6 @@ paths:
       description: Geocode (GeoJSON)
       parameters:
         - $ref: '#/components/parameters/query'
-        - $ref: '#/components/parameters/key'
         - name: abbrv
           in: query
           description: when true we attempt to abbreviate the formatted field of results.
@@ -271,7 +271,6 @@ paths:
       description: Geocode (XML)
       parameters:
         - $ref: '#/components/parameters/query'
-        - $ref: '#/components/parameters/key'
         - name: abbrv
           in: query
           description: when true we attempt to abbreviate the formatted field of results.
@@ -426,7 +425,6 @@ paths:
       description: Geocode (Google V3 JSON)
       parameters:
         - $ref: '#/components/parameters/query'
-        - $ref: '#/components/parameters/key'
         - name: abbrv
           in: query
           description: when true we attempt to abbreviate the formatted field of results.
@@ -510,6 +508,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetGoogleV3Json200ResponseBody'
 components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: query
+      name: key
+      description: an application key.  See https://opencagedata.com/api#testingkeys
   parameters:
     query:
       description: string or lat,lng to be geocoded. ex Eiffel tower or 52.3877830, 9.7334394
@@ -518,13 +522,6 @@ components:
         type: string
         in: query
         name: q
-    key:
-      name: key
-      in: query
-      description: an application key.  See https://opencagedata.com/api#testingkeys
-      required: true
-      schema:
-        type: string
   schemas:
     LatLng:
       type: object

@@ -13,11 +13,17 @@ info:
     version: 3.0.0
   x-logo:
     url: https://opencagedata.com/opencagelogo-green.png
-servers:
-  - url: https://api.opencagedata.com/geocode/v1
+
 externalDocs:
   description: OpenCage Geocoder Website
   url: https://opencagedata.com/api
+    
+servers:
+  - url: https://api.opencagedata.com/geocode/v1
+
+security: 
+  - ApiKeyAuth: []
+
 paths:
   /json:
     $ref: paths/json.yaml
@@ -27,3 +33,11 @@ paths:
     $ref: paths/xml.yaml
   /google-v3-json:
     $ref: paths/google-v3-json.yaml
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: query
+      name: key 
+      description: an application key.  See https://opencagedata.com/api#testingkeys

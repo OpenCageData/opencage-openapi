@@ -3,7 +3,6 @@ get:
   description: Geocode (XML)
   parameters:
     - $ref: ../components/parameters/query.yaml
-    - $ref: ../components/parameters/key.yaml
     - name: abbrv
       in: query
       description: when true we attempt to abbreviate the formatted field of results.
