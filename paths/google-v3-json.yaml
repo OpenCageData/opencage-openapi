@@ -1,0 +1,96 @@
+get:
+  operationId: get-google-v3-json
+  description: Geocode (Google V3 JSON)
+  parameters:
+    - $ref: ../components/parameters/query.yaml
+    - $ref: ../components/parameters/key.yaml
+    - name: abbrv
+      in: query
+      description: when true we attempt to abbreviate the formatted field of results.
+      schema:
+        type: boolean
+    - name: address_only
+      in: query
+      description: >-
+        when true we include only address details in the formatted field of
+        results.
+      schema:
+        type: boolean
+    - name: add_request
+      in: query
+      description: if true the request is included in the response.
+      schema:
+        type: boolean
+    - name: bounds
+      in: query
+      description: >-
+        four coordinate points forming the south-west and north-east corners of
+        a bounding box (min long, min lat, max long, max lat).
+      schema:
+        type: string
+    - name: countrycode
+      in: query
+      description: >-
+        two letter code ISO 3166-1 Alpha 2 code to limit results to that
+        country.
+      schema:
+        type: string
+    - name: jsonp
+      in: query
+      description: wraps the returned JSON with a function name.
+      schema:
+        type: string
+    - name: language
+      in: query
+      description: 'an IETF format language code (ex: ''es'' or ''pt-BR'').'
+      schema:
+        type: string
+    - name: limit
+      in: query
+      description: maximum number of results to return. Default is 10. Maximum is 100.
+      schema:
+        type: integer
+    - name: min_confidence
+      in: query
+      description: >-
+        integer from 1-10. Only results with at least this confidence are
+        returned.
+      schema:
+        type: integer
+    - name: no_annotations
+      in: query
+      description: when true annotations are not added to results.
+      schema:
+        type: boolean
+    - name: no_dedupe
+      in: query
+      description: when true results are not deduplicated.
+      schema:
+        type: boolean
+    - name: no_record
+      in: query
+      description: when true query content is not logged.
+      schema:
+        type: boolean
+    - name: pretty
+      in: query
+      description: when true results are pretty printed. Useful for debugging.
+      schema:
+        type: boolean
+    - name: proximity
+      in: query
+      description: lat,lng to bias results.
+      schema:
+        type: string
+    - name: roadinfo
+      in: query
+      description: match nearest road, include roadinfo annotation
+      schema:
+        type: boolean
+  responses:
+    '200':
+      description: 200 response
+      content:
+        application/json; charset=utf-8:
+          schema:
+            $ref: ../components/schemas/GetGoogleV3Json200ResponseBody.yaml

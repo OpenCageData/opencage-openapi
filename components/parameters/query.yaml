@@ -1,0 +1,6 @@
+description: string or lat,lng to be geocoded. ex Eiffel tower or 52.3877830, 9.7334394
+required: true
+schema:
+  type: string
+  in: query
+  name: q

@@ -1,0 +1,456 @@
+type: object
+properties:
+  documentation:
+    type: string
+  features:
+    type: array
+    items:
+      type: object
+      properties:
+        geometry:
+          type: object
+          properties:
+            coordinates:
+              type: array
+              items:
+                type: number
+            type:
+              type: string
+          required:
+            - coordinates
+            - type
+        properties:
+          type: object
+          properties:
+            annotations:
+              type: object
+              properties:
+                DMS:
+                  type: object
+                  properties:
+                    lat:
+                      type: string
+                    lng:
+                      type: string
+                  required:
+                    - lat
+                    - lng
+                FIPS:
+                  type: object
+                  properties:
+                    county:
+                      type: string
+                    state:
+                      type: string
+                  required:
+                    - state
+                MGRS:
+                  type: string
+                Maidenhead:
+                  type: string
+                Mercator:
+                  type: object
+                  properties:
+                    x:
+                      type: number
+                    'y':
+                      type: number
+                  required:
+                    - x
+                    - 'y'
+                OSM:
+                  type: object
+                  properties:
+                    edit_url:
+                      type: string
+                    note_url:
+                      type: string
+                    url:
+                      type: string
+                  required:
+                    - note_url
+                    - url
+                UN_M49:
+                  type: object
+                  properties:
+                    regions:
+                      type: object
+                      properties:
+                        AMERICAS:
+                          type: string
+                        NORTHERN_AMERICA:
+                          type: string
+                        US:
+                          type: string
+                        WORLD:
+                          type: string
+                        DE:
+                          type: string
+                        EUROPE:
+                          type: string
+                        WESTERN_EUROPE:
+                          type: string
+                      required:
+                        - WORLD
+                    statistical_groupings:
+                      type: array
+                      items:
+                        type: string
+                  required:
+                    - regions
+                    - statistical_groupings
+                callingcode:
+                  type: number
+                currency:
+                  type: object
+                  properties:
+                    alternate_symbols:
+                      type: array
+                      items:
+                        type: string
+                    decimal_mark:
+                      type: string
+                    disambiguate_symbol:
+                      type: string
+                    html_entity:
+                      type: string
+                    iso_code:
+                      type: string
+                    iso_numeric:
+                      type: string
+                    name:
+                      type: string
+                    smallest_denomination:
+                      type: number
+                    subunit:
+                      type: string
+                    subunit_to_unit:
+                      type: number
+                    symbol:
+                      type: string
+                    symbol_first:
+                      type: number
+                    thousands_separator:
+                      type: string
+                  required:
+                    - alternate_symbols
+                    - decimal_mark
+                    - html_entity
+                    - iso_code
+                    - iso_numeric
+                    - name
+                    - smallest_denomination
+                    - subunit
+                    - subunit_to_unit
+                    - symbol
+                    - symbol_first
+                    - thousands_separator
+                flag:
+                  type: string
+                geohash:
+                  type: string
+                qibla:
+                  type: number
+                roadinfo:
+                  type: object
+                  properties:
+                    drive_on:
+                      type: string
+                    road:
+                      type: string
+                    speed_in:
+                      type: string
+                  required:
+                    - drive_on
+                    - speed_in
+                sun:
+                  type: object
+                  properties:
+                    rise:
+                      type: object
+                      properties:
+                        apparent:
+                          type: number
+                        astronomical:
+                          type: number
+                        civil:
+                          type: number
+                        nautical:
+                          type: number
+                      required:
+                        - apparent
+                        - astronomical
+                        - civil
+                        - nautical
+                    set:
+                      type: object
+                      properties:
+                        apparent:
+                          type: number
+                        astronomical:
+                          type: number
+                        civil:
+                          type: number
+                        nautical:
+                          type: number
+                      required:
+                        - apparent
+                        - astronomical
+                        - civil
+                        - nautical
+                  required:
+                    - rise
+                    - set
+                timezone:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    now_in_dst:
+                      type: number
+                    offset_sec:
+                      type: number
+                    offset_string:
+                      type: string
+                    short_name:
+                      type: string
+                  required:
+                    - name
+                    - now_in_dst
+                    - offset_sec
+                    - offset_string
+                    - short_name
+                what3words:
+                  type: object
+                  properties:
+                    words:
+                      type: string
+                  required:
+                    - words
+                NUTS:
+                  type: object
+                  properties:
+                    NUTS0:
+                      type: object
+                      properties:
+                        code:
+                          type: string
+                      required:
+                        - code
+                    NUTS1:
+                      type: object
+                      properties:
+                        code:
+                          type: string
+                      required:
+                        - code
+                    NUTS2:
+                      type: object
+                      properties:
+                        code:
+                          type: string
+                      required:
+                        - code
+                    NUTS3:
+                      type: object
+                      properties:
+                        code:
+                          type: string
+                      required:
+                        - code
+                  required:
+                    - NUTS0
+                    - NUTS1
+                    - NUTS2
+                    - NUTS3
+              required:
+                - DMS
+                - MGRS
+                - Maidenhead
+                - Mercator
+                - OSM
+                - UN_M49
+                - callingcode
+                - currency
+                - flag
+                - geohash
+                - qibla
+                - roadinfo
+                - sun
+                - timezone
+                - what3words
+            bounds:
+              type: object
+              properties:
+                northeast:
+                  type: object
+                  properties:
+                    lat:
+                      type: number
+                    lng:
+                      type: number
+                  required:
+                    - lat
+                    - lng
+                southwest:
+                  type: object
+                  properties:
+                    lat:
+                      type: number
+                    lng:
+                      type: number
+                  required:
+                    - lat
+                    - lng
+              required:
+                - northeast
+                - southwest
+            components:
+              type: object
+              properties:
+                ISO_3166-1_alpha-2:
+                  type: string
+                ISO_3166-1_alpha-3:
+                  type: string
+                ISO_3166-2:
+                  type: array
+                  items:
+                    type: string
+                _category:
+                  type: string
+                _type:
+                  type: string
+                borough:
+                  type: string
+                city:
+                  type: string
+                continent:
+                  type: string
+                country:
+                  type: string
+                country_code:
+                  type: string
+                county:
+                  type: string
+                house_number:
+                  type: string
+                neighbourhood:
+                  type: string
+                postcode:
+                  type: string
+                road:
+                  type: string
+                state:
+                  type: string
+                state_code:
+                  type: string
+                town:
+                  type: string
+                village:
+                  type: string
+                city_district:
+                  type: string
+                office:
+                  type: string
+                political_union:
+                  type: string
+                suburb:
+                  type: string
+              required:
+                - ISO_3166-1_alpha-2
+                - ISO_3166-1_alpha-3
+                - ISO_3166-2
+                - _category
+                - _type
+                - continent
+                - country
+                - country_code
+                - state
+                - state_code
+            confidence:
+              type: number
+            formatted:
+              type: string
+          required:
+            - annotations
+            - components
+            - confidence
+            - formatted
+        type:
+          type: string
+      required:
+        - geometry
+        - properties
+        - type
+  licenses:
+    type: array
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+        url:
+          type: string
+      required:
+        - name
+        - url
+  rate:
+    type: object
+    properties:
+      limit:
+        type: number
+      remaining:
+        type: number
+      reset:
+        type: number
+    required:
+      - limit
+      - remaining
+      - reset
+  status:
+    type: object
+    properties:
+      code:
+        type: number
+      message:
+        type: string
+    required:
+      - code
+      - message
+  stay_informed:
+    type: object
+    properties:
+      blog:
+        type: string
+      mastodon:
+        type: string
+    required:
+      - blog
+      - mastodon
+  thanks:
+    type: string
+  timestamp:
+    type: object
+    properties:
+      created_http:
+        type: string
+      created_unix:
+        type: number
+    required:
+      - created_http
+      - created_unix
+  total_results:
+    type: number
+  type:
+    type: string
+required:
+  - documentation
+  - features
+  - licenses
+  - rate
+  - status
+  - stay_informed
+  - thanks
+  - timestamp
+  - total_results
+  - type

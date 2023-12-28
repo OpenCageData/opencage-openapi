@@ -1,0 +1,6 @@
+name: key
+in: query
+description: an application key.  See https://opencagedata.com/api#testingkeys
+required: true
+schema:
+  type: string

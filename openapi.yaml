@@ -1,0 +1,29 @@
+openapi: 3.1.2
+info:
+  contact:
+    name: OpenCage GmbH
+    url: https://opencagedata.com/contact
+  version: 1.1.0
+  termsOfService: https://opencagedata.com/terms
+  title: OpenCage Geocoder
+  description: Worldwide forward and reverse geocoding
+  x-origin:
+    format: openapi
+    url: https://opencagedata.com/openapi.yaml
+    version: 3.0.0
+  x-logo:
+    url: https://opencagedata.com/opencagelogo-green.png
+servers:
+  - url: https://api.opencagedata.com/geocode/v1
+externalDocs:
+  description: OpenCage Geocoder Website
+  url: https://opencagedata.com/api
+paths:
+  /json:
+    $ref: paths/json.yaml
+  /geojson:
+    $ref: paths/geojson.yaml
+  /xml:
+    $ref: paths/xml.yaml
+  /google-v3-json:
+    $ref: paths/google-v3-json.yaml

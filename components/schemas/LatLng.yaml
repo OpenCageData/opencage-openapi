@@ -1,0 +1,8 @@
+type: object
+properties:
+  lat:
+    type: number
+    format: float
+  lng:
+    type: number
+    format: float

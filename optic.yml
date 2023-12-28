@@ -1,5 +1,5 @@
 capture:
-  opencage-openapi-3.0.0.yaml:
+  opencage-openapi-3.1.0.yaml:
     # Complete reference documentation for this configuration file is available:
     #   https://www.useoptic.com/docs/capturing-traffic#configuration-reference
 
