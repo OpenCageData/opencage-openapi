@@ -1,0 +1,10 @@
+capture:
+  opencage-openapi-3.0.0.yaml:
+    # Complete reference documentation for this configuration file is available:
+    #   https://www.useoptic.com/docs/capturing-traffic#configuration-reference
+
+    # Run with "optic capture opencage-openapi-3.0.0.yaml --update interactive"
+    server:
+      url: https://api.opencagedata.com/geocode/v1/
+    requests:
+      send: []
