@@ -7,4 +7,5 @@ capture:
     server:
       url: https://api.opencagedata.com/geocode/v1/
     requests:
-      send: []
+      run:
+        command: sh ./requests.sh
