@@ -1,0 +1,5 @@
+description: >-
+  **Non-subscription customers only.** The UNIX timestamp at which the current rate limit window resets.
+schema:
+  type: integer
+example: 1605312000

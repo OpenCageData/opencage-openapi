@@ -1,0 +1,5 @@
+description: >-
+  **Non-subscription customers only.** Total number of API requests your account is limited to over given time period (24 hours for free trials).
+schema:
+  type: integer
+example: 2500

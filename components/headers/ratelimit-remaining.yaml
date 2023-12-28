@@ -1,0 +1,5 @@
+description: >-
+  **Non-subscription customers only.** The number of requests left for the time window.
+schema:
+  type: integer
+example: 2498

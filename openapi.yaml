@@ -6,7 +6,13 @@ info:
   version: 1.1.0
   termsOfService: https://opencagedata.com/terms
   title: OpenCage Geocoder
-  description: Worldwide forward and reverse geocoding
+  description: >
+    Worldwide forward and reverse geocoding.
+
+    # Rate Limiting
+
+    Responses to subscription customers do NOT contain the `rate` element of the response body or `X-Ratelimit` HTTP headers, because they do not face hard limits. 
+
   x-origin:
     format: openapi
     url: https://opencagedata.com/openapi.yaml

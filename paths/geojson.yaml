@@ -91,6 +91,13 @@ get:
   responses:
     '200':
       description: OK
+      headers:
+        X-RateLimit-Limit:
+          $ref: ../components/headers/ratelimit-limit.yaml
+        X-RateLimit-Remaining:
+          $ref: ../components/headers/ratelimit-remaining.yaml
+        X-RateLimit-Reset:
+          $ref: ../components/headers/ratelimit-reset.yaml
       content:
         application/json; charset=utf-8:
           schema:
