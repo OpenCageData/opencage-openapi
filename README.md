@@ -13,7 +13,6 @@ The main OpenAPI document is `openapi.yaml` and everything else is `$ref`'ed in 
 │   │   └── *.yaml
 ├── paths
 │   ├── geojson.yaml
-│   ├── google-v3-json.yaml
 │   ├── json.yaml
 │   └── xml.yaml
 ├── openapi.yaml
