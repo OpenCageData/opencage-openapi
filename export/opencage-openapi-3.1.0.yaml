@@ -367,6 +367,9 @@ components:
             type: object
             properties:
               annotations:
+                description: |
+                  which annotations are returned depends on the location of the result
+                  see https://opencagedata.com/api#annotations
                 type: object
                 properties:
                   DMS:
@@ -388,6 +391,11 @@ components:
                         type: string
                     required:
                       - state
+                  H3:
+                    description: |
+                      only available to paying customers and by request
+                      see https://opencagedata.com/api#h3
+                    type: string
                   MGRS:
                     type: string
                   Maidenhead:
@@ -402,6 +410,42 @@ components:
                     required:
                       - x
                       - 'y'
+                  NUTS:
+                    type: object
+                    properties:
+                      NUTS0:
+                        type: object
+                        properties:
+                          code:
+                            type: string
+                        required:
+                          - code
+                      NUTS1:
+                        type: object
+                        properties:
+                          code:
+                            type: string
+                        required:
+                          - code
+                      NUTS2:
+                        type: object
+                        properties:
+                          code:
+                            type: string
+                        required:
+                          - code
+                      NUTS3:
+                        type: object
+                        properties:
+                          code:
+                            type: string
+                        required:
+                          - code
+                    required:
+                      - NUTS0
+                      - NUTS1
+                      - NUTS2
+                      - NUTS3
                   OSM:
                     type: object
                     properties:
@@ -414,8 +458,28 @@ components:
                     required:
                       - note_url
                       - url
+                  UN/LOCODE:
+                    description: |
+                      see https://opencagedata.com/api#unlocode
+                    type: object
+                    properties:
+                      code:
+                        type: string
+                      date:
+                        type: string
+                      function:
+                        type: object
+                      meaning:
+                        type: array
+                        items:
+                          type: string
+                      raw:
+                        type: string
                   UN_M49:
                     type: object
+                    description: |
+                      response varies based on region
+                      see https://opencagedata.com/api#unm49
                     properties:
                       regions:
                         type: object
@@ -571,58 +635,7 @@ components:
                         type: string
                     required:
                       - words
-                  NUTS:
-                    type: object
-                    properties:
-                      NUTS0:
-                        type: object
-                        properties:
-                          code:
-                            type: string
-                        required:
-                          - code
-                      NUTS1:
-                        type: object
-                        properties:
-                          code:
-                            type: string
-                        required:
-                          - code
-                      NUTS2:
-                        type: object
-                        properties:
-                          code:
-                            type: string
-                        required:
-                          - code
-                      NUTS3:
-                        type: object
-                        properties:
-                          code:
-                            type: string
-                        required:
-                          - code
-                    required:
-                      - NUTS0
-                      - NUTS1
-                      - NUTS2
-                      - NUTS3
-                required:
-                  - DMS
-                  - MGRS
-                  - Maidenhead
-                  - Mercator
-                  - OSM
-                  - UN_M49
-                  - callingcode
-                  - currency
-                  - flag
-                  - geohash
-                  - qibla
-                  - roadinfo
-                  - sun
-                  - timezone
-                  - what3words
+                required: null
               bounds:
                 type: object
                 properties:
@@ -631,6 +644,7 @@ components:
                   southwest:
                     $ref: '#/components/schemas/LatLng'
               components:
+                description: fields will depend on the location see https://opencagedata.com/api#formatted
                 type: object
                 properties:
                   ISO_3166-1_alpha-2:
@@ -643,7 +657,11 @@ components:
                       type: string
                   _category:
                     type: string
+                  _normalized_city:
+                    type: string
                   _type:
+                    type: string
+                  body_of_water:
                     type: string
                   borough:
                     type: string
@@ -682,18 +700,18 @@ components:
                   suburb:
                     type: string
                 required:
-                  - ISO_3166-1_alpha-2
-                  - ISO_3166-1_alpha-3
-                  - ISO_3166-2
-                  - _category
                   - _type
-                  - continent
-                  - country
-                  - country_code
-                  - state
-                  - state_code
+                  - _category
               confidence:
                 type: integer
+              distance_from_q:
+                description: |
+                  only for reverse geocoding requests
+                  see https://opencagedata.com/api#response
+                type: object
+                properties:
+                  meters:
+                    type: number
               formatted:
                 type: string
               geometry:
