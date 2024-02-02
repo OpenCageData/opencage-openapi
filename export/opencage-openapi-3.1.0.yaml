@@ -6,16 +6,14 @@ info:
   version: 1.1.0
   termsOfService: https://opencagedata.com/terms
   title: OpenCage Geocoder
-  description: >
-    Worldwide forward and reverse geocoding.
-
+  description: |
+    Worldwide forward and reverse geocoding with open data.
     # Rate Limiting
-
-    *Note:* Responses to subscription customers do NOT contain the rate element of the response body or X-Ratelimit HTTP headers, because they do not face hard limits. 
+    Responses to subscription customers do NOT contain the `rate` element of the response body or `X-Ratelimit` HTTP headers, because they do not face hard limits. 
   x-origin:
     format: openapi
     url: https://opencagedata.com/openapi.yaml
-    version: 3.0.0
+    version: 3.1.2
   x-logo:
     url: https://opencagedata.com/opencagelogo-green.png
 servers:
@@ -26,90 +24,26 @@ externalDocs:
   description: OpenCage Geocoder Website
   url: https://opencagedata.com/api
 paths:
+  description: |
+    see https://opencagedata.com/api#request
+    /google-v3-json exists but is not supported and will be deprecated
   /json:
     get:
       description: Geocode (JSON)
       operationId: get-json
       parameters:
         - $ref: '#/components/parameters/query'
-        - name: abbrv
-          in: query
-          description: when true we attempt to abbreviate the formatted field of results.
-          schema:
-            type: boolean
-        - name: address_only
-          in: query
-          description: when true we include only address details in the formatted field of results.
-          schema:
-            type: boolean
-        - name: add_request
-          in: query
-          description: if true the request is included in the response.
-          schema:
-            type: boolean
-        - name: bounds
-          in: query
-          description: four coordinate points forming the south-west and north-east corners of a bounding box (min long, min lat, max long, max lat).
-          schema:
-            type: string
-        - name: countrycode
-          in: query
-          description: two letter code ISO 3166-1 Alpha 2 code to limit results to that country.
-          schema:
-            type: string
-        - name: jsonp
-          in: query
-          description: wraps the returned JSON with a function name.
-          schema:
-            type: string
-        - name: language
-          in: query
-          description: 'an IETF format language code (ex: ''es'' or ''pt-BR'').'
-          schema:
-            type: string
-        - name: limit
-          in: query
-          description: maximum number of results to return. Default is 10. Maximum is 100.
-          schema:
-            type: integer
-        - name: min_confidence
-          in: query
-          description: integer from 1-10. Only results with at least this confidence are returned.
-          schema:
-            type: integer
-        - name: no_annotations
-          in: query
-          description: when true annotations are not added to results.
-          schema:
-            type: boolean
-        - name: no_dedupe
-          in: query
-          description: when true results are not deduplicated.
-          schema:
-            type: boolean
-        - name: no_record
-          in: query
-          description: when true query content is not logged.
-          schema:
-            type: boolean
-        - name: pretty
-          in: query
-          description: when true results are pretty printed. Useful for debugging.
-          schema:
-            type: boolean
-        - name: proximity
-          in: query
-          description: lat,lng to bias results.
-          schema:
-            type: string
-        - name: roadinfo
-          in: query
-          description: match nearest road, include roadinfo annotation
-          schema:
-            type: boolean
+        - $ref: '#/components/parameters/optional-params'
       responses:
         '200':
-          description: Successful response
+          description: OK
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/ratelimit-limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/ratelimit-remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/ratelimit-reset'
           content:
             application/json:
               schema:
@@ -186,86 +120,17 @@ paths:
       description: Geocode (GeoJSON)
       parameters:
         - $ref: '#/components/parameters/query'
-        - name: abbrv
-          in: query
-          description: when true we attempt to abbreviate the formatted field of results.
-          schema:
-            type: boolean
-        - name: address_only
-          in: query
-          description: when true we include only address details in the formatted field of results.
-          schema:
-            type: boolean
-        - name: add_request
-          in: query
-          description: if true the request is included in the response.
-          schema:
-            type: boolean
-        - name: bounds
-          in: query
-          description: four coordinate points forming the south-west and north-east corners of a bounding box (min long, min lat, max long, max lat).
-          schema:
-            type: string
-        - name: countrycode
-          in: query
-          description: two letter code ISO 3166-1 Alpha 2 code to limit results to that country.
-          schema:
-            type: string
-        - name: jsonp
-          in: query
-          description: wraps the returned JSON with a function name.
-          schema:
-            type: string
-        - name: language
-          in: query
-          description: 'an IETF format language code (ex: ''es'' or ''pt-BR'').'
-          schema:
-            type: string
-        - name: limit
-          in: query
-          description: maximum number of results to return. Default is 10. Maximum is 100.
-          schema:
-            type: integer
-        - name: min_confidence
-          in: query
-          description: integer from 1-10. Only results with at least this confidence are returned.
-          schema:
-            type: integer
-            minimum: 1
-            maximum: 10
-        - name: no_annotations
-          in: query
-          description: when true annotations are not added to results.
-          schema:
-            type: boolean
-        - name: no_dedupe
-          in: query
-          description: when true results are not deduplicated.
-          schema:
-            type: boolean
-        - name: no_record
-          in: query
-          description: when true query content is not logged.
-          schema:
-            type: boolean
-        - name: pretty
-          in: query
-          description: when true results are pretty printed. Useful for debugging.
-          schema:
-            type: boolean
-        - name: proximity
-          in: query
-          description: lat,lng to bias results.
-          schema:
-            type: string
-        - name: roadinfo
-          in: query
-          description: match nearest road, include roadinfo annotation
-          schema:
-            type: boolean
+        - $ref: '#/components/parameters/optional-params'
       responses:
         '200':
           description: OK
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/ratelimit-limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/ratelimit-remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/ratelimit-reset'
           content:
             application/json; charset=utf-8:
               schema:
@@ -276,84 +141,17 @@ paths:
       description: Geocode (XML)
       parameters:
         - $ref: '#/components/parameters/query'
-        - name: abbrv
-          in: query
-          description: when true we attempt to abbreviate the formatted field of results.
-          schema:
-            type: boolean
-        - name: address_only
-          in: query
-          description: when true we include only address details in the formatted field of results.
-          schema:
-            type: boolean
-        - name: add_request
-          in: query
-          description: if true the request is included in the response.
-          schema:
-            type: boolean
-        - name: bounds
-          in: query
-          description: four coordinate points forming the south-west and north-east corners of a bounding box (min long, min lat, max long, max lat).
-          schema:
-            type: string
-        - name: countrycode
-          in: query
-          description: two letter code ISO 3166-1 Alpha 2 code to limit results to that country.
-          schema:
-            type: string
-        - name: jsonp
-          in: query
-          description: wraps the returned JSON with a function name.
-          schema:
-            type: string
-        - name: language
-          in: query
-          description: 'an IETF format language code (ex: ''es'' or ''pt-BR'').'
-          schema:
-            type: string
-        - name: limit
-          in: query
-          description: maximum number of results to return. Default is 10. Maximum is 100.
-          schema:
-            type: integer
-        - name: min_confidence
-          in: query
-          description: integer from 1-10. Only results with at least this confidence are returned.
-          schema:
-            type: integer
-        - name: no_annotations
-          in: query
-          description: when true annotations are not added to results.
-          schema:
-            type: boolean
-        - name: no_dedupe
-          in: query
-          description: when true results are not deduplicated.
-          schema:
-            type: boolean
-        - name: no_record
-          in: query
-          description: when true query content is not logged.
-          schema:
-            type: boolean
-        - name: pretty
-          in: query
-          description: when true results are pretty printed. Useful for debugging.
-          schema:
-            type: boolean
-        - name: proximity
-          in: query
-          description: lat,lng to bias results.
-          schema:
-            type: string
-        - name: roadinfo
-          in: query
-          description: match nearest road, include roadinfo annotation
-          schema:
-            type: boolean
+        - $ref: '#/components/parameters/optional-params'
       responses:
         '200':
           description: OK
+          headers:
+            X-RateLimit-Limit:
+              $ref: '#/components/headers/ratelimit-limit'
+            X-RateLimit-Remaining:
+              $ref: '#/components/headers/ratelimit-remaining'
+            X-RateLimit-Reset:
+              $ref: '#/components/headers/ratelimit-reset'
           content:
             text/xml; charset=utf-8:
               schema:
@@ -424,101 +222,13 @@ paths:
             text/xml; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/Response'
-  /google-v3-json:
-    get:
-      operationId: get-google-v3-json
-      description: Geocode (Google V3 JSON)
-      parameters:
-        - $ref: '#/components/parameters/query'
-        - name: abbrv
-          in: query
-          description: when true we attempt to abbreviate the formatted field of results.
-          schema:
-            type: boolean
-        - name: address_only
-          in: query
-          description: when true we include only address details in the formatted field of results.
-          schema:
-            type: boolean
-        - name: add_request
-          in: query
-          description: if true the request is included in the response.
-          schema:
-            type: boolean
-        - name: bounds
-          in: query
-          description: four coordinate points forming the south-west and north-east corners of a bounding box (min long, min lat, max long, max lat).
-          schema:
-            type: string
-        - name: countrycode
-          in: query
-          description: two letter code ISO 3166-1 Alpha 2 code to limit results to that country.
-          schema:
-            type: string
-        - name: jsonp
-          in: query
-          description: wraps the returned JSON with a function name.
-          schema:
-            type: string
-        - name: language
-          in: query
-          description: 'an IETF format language code (ex: ''es'' or ''pt-BR'').'
-          schema:
-            type: string
-        - name: limit
-          in: query
-          description: maximum number of results to return. Default is 10. Maximum is 100.
-          schema:
-            type: integer
-        - name: min_confidence
-          in: query
-          description: integer from 1-10. Only results with at least this confidence are returned.
-          schema:
-            type: integer
-        - name: no_annotations
-          in: query
-          description: when true annotations are not added to results.
-          schema:
-            type: boolean
-        - name: no_dedupe
-          in: query
-          description: when true results are not deduplicated.
-          schema:
-            type: boolean
-        - name: no_record
-          in: query
-          description: when true query content is not logged.
-          schema:
-            type: boolean
-        - name: pretty
-          in: query
-          description: when true results are pretty printed. Useful for debugging.
-          schema:
-            type: boolean
-        - name: proximity
-          in: query
-          description: lat,lng to bias results.
-          schema:
-            type: string
-        - name: roadinfo
-          in: query
-          description: match nearest road, include roadinfo annotation
-          schema:
-            type: boolean
-      responses:
-        '200':
-          description: 200 response
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/GetGoogleV3Json200ResponseBody'
 components:
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
       in: query
       name: key
-      description: an application key.  See https://opencagedata.com/api#testingkeys
+      description: 30 character long, alphanumeric string unique to your account. See https://opencagedata.com/api#required-params
   parameters:
     query:
       description: string or lat,lng to be geocoded. ex Eiffel tower or 52.3877830, 9.7334394
@@ -527,6 +237,98 @@ components:
         type: string
         in: query
         name: q
+    optional-params:
+      - name: abbrv
+        in: query
+        description: when true we attempt to abbreviate the formatted field of results.
+        schema:
+          type: boolean
+      - name: address_only
+        in: query
+        description: when true we include only address details in the formatted field of results.
+        schema:
+          type: boolean
+      - name: add_request
+        in: query
+        description: if true the request is included in the response.
+        schema:
+          type: boolean
+      - name: bounds
+        in: query
+        description: four coordinate points forming the south-west and north-east corners of a bounding box (min long, min lat, max long, max lat).
+        schema:
+          type: string
+      - name: countrycode
+        in: query
+        description: CSV list of two letter ISO 3166-1 Alpha 2 codes) to limit results to that country/counties
+        schema:
+          type: string
+      - name: jsonp
+        in: query
+        description: wraps the returned JSON with a function name.
+        schema:
+          type: string
+      - name: language
+        in: query
+        description: 'an IETF format language code (ex: ''es'' or ''pt-BR'').'
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: maximum number of results to return. Default is 10. Maximum is 100.
+        schema:
+          type: integer
+      - name: min_confidence
+        in: query
+        description: integer from 1-10. Only results with at least this confidence are returned.
+        schema:
+          type: integer
+      - name: no_annotations
+        in: query
+        description: when true annotations are not added to results.
+        schema:
+          type: boolean
+      - name: no_dedupe
+        in: query
+        description: when true results are not deduplicated.
+        schema:
+          type: boolean
+      - name: no_record
+        in: query
+        description: when true query content is not logged.
+        schema:
+          type: boolean
+      - name: pretty
+        in: query
+        description: when true results are pretty printed. Useful for debugging.
+        schema:
+          type: boolean
+      - name: proximity
+        in: query
+        description: lat,lng to bias results.
+        schema:
+          type: string
+      - name: roadinfo
+        in: query
+        description: match nearest road, include roadinfo annotation
+        schema:
+          type: boolean
+  headers:
+    ratelimit-limit:
+      description: '**Non-subscription customers only.** Total number of API requests your account is limited to over given time period (24 hours for free trials).'
+      schema:
+        type: integer
+      example: 2500
+    ratelimit-remaining:
+      description: '**Non-subscription customers only.** The number of requests left for the time window.'
+      schema:
+        type: integer
+      example: 2498
+    ratelimit-reset:
+      description: '**Non-subscription customers only.** The UNIX timestamp at which the current rate limit window resets.'
+      schema:
+        type: integer
+      example: 1605312000
   schemas:
     LatLng:
       type: object
@@ -1383,92 +1185,3 @@ components:
         - timestamp
         - total_results
         - type
-    GetGoogleV3Json200ResponseBody:
-      type: object
-      properties:
-        results:
-          type: array
-          items:
-            type: object
-            properties:
-              address_components:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    long_name:
-                      oneOf:
-                        - type: string
-                        - type: array
-                          items:
-                            type: string
-                    short_name:
-                      oneOf:
-                        - type: string
-                        - type: array
-                          items:
-                            type: string
-                    types:
-                      type: array
-                      items:
-                        type: string
-                  required:
-                    - long_name
-                    - short_name
-                    - types
-              formatted_address:
-                type: string
-              geometry:
-                type: object
-                properties:
-                  bounds:
-                    type: object
-                    properties:
-                      northeast:
-                        type: object
-                        properties:
-                          lat:
-                            type: string
-                          lng:
-                            type: string
-                        required:
-                          - lat
-                          - lng
-                      southwest:
-                        type: object
-                        properties:
-                          lat:
-                            type: string
-                          lng:
-                            type: string
-                        required:
-                          - lat
-                          - lng
-                    required:
-                      - northeast
-                      - southwest
-                  location:
-                    type: object
-                    properties:
-                      lat:
-                        oneOf:
-                          - type: string
-                          - type: number
-                      lng:
-                        oneOf:
-                          - type: string
-                          - type: number
-                    required:
-                      - lat
-                      - lng
-                required:
-                  - location
-            required:
-              - address_components
-              - formatted_address
-              - geometry
-        status:
-          type: string
-      required:
-        - results
-        - status

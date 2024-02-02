@@ -1,8 +1,3 @@
-get:
-  operationId: get-google-v3-json
-  description: Geocode (Google V3 JSON)
-  parameters:
-    - $ref: ../components/parameters/query.yaml
     - name: abbrv
       in: query
       description: when true we attempt to abbreviate the formatted field of results.
@@ -30,8 +25,8 @@ get:
     - name: countrycode
       in: query
       description: >-
-        two letter code ISO 3166-1 Alpha 2 code to limit results to that
-        country.
+        CSV list of two letter ISO 3166-1 Alpha 2 codes) to limit results to that
+        country/counties
       schema:
         type: string
     - name: jsonp
@@ -86,17 +81,3 @@ get:
       description: match nearest road, include roadinfo annotation
       schema:
         type: boolean
-  responses:
-    '200':
-      description: OK
-      headers:
-        X-RateLimit-Limit:
-          $ref: ../components/headers/ratelimit-limit.yaml
-        X-RateLimit-Remaining:
-          $ref: ../components/headers/ratelimit-remaining.yaml
-        X-RateLimit-Reset:
-          $ref: ../components/headers/ratelimit-reset.yaml
-      content:
-        application/json; charset=utf-8:
-          schema:
-            $ref: ../components/schemas/GetGoogleV3Json200ResponseBody.yaml

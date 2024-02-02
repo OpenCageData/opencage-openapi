@@ -7,7 +7,7 @@ info:
   termsOfService: https://opencagedata.com/terms
   title: OpenCage Geocoder
   description: >
-    Worldwide forward and reverse geocoding.
+    Worldwide forward and reverse geocoding with open data.
 
     # Rate Limiting
 
@@ -16,7 +16,7 @@ info:
   x-origin:
     format: openapi
     url: https://opencagedata.com/openapi.yaml
-    version: 3.0.0
+    version: 3.1.2
   x-logo:
     url: https://opencagedata.com/opencagelogo-green.png
 
@@ -31,14 +31,15 @@ security:
   - ApiKeyAuth: []
 
 paths:
+  description: |
+    see https://opencagedata.com/api#request
+    /google-v3-json exists but is not supported and will be deprecated
   /json:
     $ref: paths/json.yaml
   /geojson:
     $ref: paths/geojson.yaml
   /xml:
     $ref: paths/xml.yaml
-  /google-v3-json:
-    $ref: paths/google-v3-json.yaml
 
 components:
   securitySchemes:
@@ -46,4 +47,4 @@ components:
       type: apiKey
       in: query
       name: key 
-      description: an application key.  See https://opencagedata.com/api#testingkeys
+      description: 30 character long, alphanumeric string unique to your account. See https://opencagedata.com/api#required-params
