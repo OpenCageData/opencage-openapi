@@ -369,7 +369,7 @@ properties:
             only for reverse geocoding requests
             see https://opencagedata.com/api#response
           type: object
-          properties
+          properties:
             meters:
               type: number
         formatted:
