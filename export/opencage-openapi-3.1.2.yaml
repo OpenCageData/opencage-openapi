@@ -564,10 +564,34 @@ components:
                     properties:
                       drive_on:
                         type: string
+                      lanes:
+                        type: number
+                      maxheight:
+                        type: string
+                      maxspeed:
+                        type: string
+                      maxweight:
+                        type: number
+                      maxwidth:
+                        type: number
+                      oneway:
+                        type: number
                       road:
+                        type: string
+                      road_reference:
+                        type: string
+                      road_reference_intl:
+                        type: string
+                      road_type:
                         type: string
                       speed_in:
                         type: string
+                      surface:
+                        type: number
+                      toll:
+                        type: string
+                      width:
+                        type: number
                     required:
                       - drive_on
                       - speed_in
