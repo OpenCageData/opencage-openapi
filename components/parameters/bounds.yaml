@@ -2,7 +2,8 @@ in: query
 description: >-
   four coordinate points forming the south-west and north-east corners of
   a bounding box (min long, min lat, max long, max lat).
-required: false  
+name: bounds
+required: false
 schema:
-  name: bounds
   type: string
+  example: -0.563160,51.280430,0.278970,51.683979

@@ -1,6 +1,9 @@
 get:
   operationId: get-geojson
   description: Geocode (GeoJSON)
+  tags:
+    - Geocoding
+    - Reverse Geocoding
   parameters:    
     - $ref: ../components/parameters/query.yaml
     - $ref: ../components/parameters/address_only.yaml

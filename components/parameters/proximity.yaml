@@ -1,6 +1,7 @@
+name: proximity
 description: lat,lng to bias results.
 in: query
 required: false
+example: 52.3877830,9.7334394
 schema:
-  name: proximity
   type: string

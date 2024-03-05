@@ -1,6 +1,7 @@
+name: limit
 description: maximum number of results to return. Default is 10. Maximum is 100.
 in: query
 required: false
-schema:
-  name: limit
+example: 1
+schema:  
   type: integer

@@ -1,6 +1,7 @@
+name: address_only
 description: when true we include only address details in the formatted field of results.
 in: query
 required: false
-schema:
-  name: address_only
+schema:  
   type: boolean
+  default: false

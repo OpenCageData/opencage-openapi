@@ -1,6 +1,7 @@
+name: jsonp
 description: wraps the returned JSON with a function name.
 in: query
 required: false
+example: myfunc
 schema:
-  name: jsonp
   type: string

@@ -1,6 +1,8 @@
+name: no_dedupe
 description: when true results are not deduplicated.
 in: query
 required: false
 schema:
-  name: no_dedupe
   type: boolean
+  default: false
+

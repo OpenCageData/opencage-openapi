@@ -1,6 +1,7 @@
+name: pretty
 description: when true results are pretty printed. Useful for debugging.
 in: query
 required: false
-schema:
-  name: pretty
+schema:  
   type: boolean
+  default: false

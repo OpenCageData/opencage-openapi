@@ -1,6 +1,7 @@
+name: countrycode
 description: CSV list of two letter ISO 3166-1 Alpha 2 codes) to limit results to that country/countries.
 in: query
 required: false
 schema:
-  name: countrycode
+  example: de,at,ch,li,lu  
   type: string

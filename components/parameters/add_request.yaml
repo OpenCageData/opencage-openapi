@@ -1,6 +1,7 @@
+name: add_request
 in: query
 description: if true the request is included in the response.
 required: false
 schema:
-  name: add_request
+  default: false  
   type: boolean

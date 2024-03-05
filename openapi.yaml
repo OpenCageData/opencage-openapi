@@ -1,11 +1,11 @@
-openapi: 3.1.2
+openapi: 3.0.3
 info:
   contact:
     name: OpenCage GmbH
     url: https://opencagedata.com/contact
   version: 1.1.0
   termsOfService: https://opencagedata.com/terms
-  title: OpenCage Geocoder
+  title: OpenCage Geocoder  
   description: >
     Worldwide forward and reverse geocoding with open data.
 
@@ -16,12 +16,18 @@ info:
   x-origin:
     format: openapi
     url: https://opencagedata.com/openapi.yaml
-    version: 3.1.2
+    version: 3.0.3
   x-logo:
     url: https://opencagedata.com/opencagelogo-green.png
 
+tags:
+  - name: Geocoding
+    description: Convert address into coordinates (latitude, longitude)and relevant location information
+  - name: Reverse Geocoding
+    description: Convert coordinates (latitude, longitude) into addresses and relevant location information
+
 externalDocs:
-  description: OpenCage Geocoder Website
+  description: OpenCage Geocoder API documentation
   url: https://opencagedata.com/api
     
 servers:

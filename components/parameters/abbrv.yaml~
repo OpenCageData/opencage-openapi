@@ -1,6 +1,0 @@
-description: when true we attempt to abbreviate the formatted field of results.
-in: query
-required: false
-schema:
-  name: abbrv
-  type: boolean

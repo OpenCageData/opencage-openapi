@@ -1,6 +1,9 @@
 get:
   description: Geocode (JSON)
   operationId: get-json
+  tags:
+    - Geocoding
+    - Reverse Geocoding  
   parameters:
     - $ref: ../components/parameters/query.yaml
     - $ref: ../components/parameters/abbrv.yaml

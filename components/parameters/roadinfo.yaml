@@ -1,6 +1,7 @@
+name: roadinfo
 description: when true we geocode to nearest road, include roadinfo annotation
 in: query
 required: false
 schema:
-  name: roadinfo
   type: boolean
+  default: false

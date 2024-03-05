@@ -1,4 +1,4 @@
-openapi: 3.1.2
+openapi: 3.0.3
 info:
   contact:
     name: OpenCage GmbH
@@ -13,21 +13,29 @@ info:
   x-origin:
     format: openapi
     url: https://opencagedata.com/openapi.yaml
-    version: 3.1.2
+    version: 3.0.3
   x-logo:
     url: https://opencagedata.com/opencagelogo-green.png
 servers:
   - url: https://api.opencagedata.com/geocode/v1
 security:
   - ApiKeyAuth: []
+tags:
+  - name: Geocoding
+    description: Convert address into coordinates (latitude, longitude)and relevant location information
+  - name: Reverse Geocoding
+    description: Convert coordinates (latitude, longitude) into addresses and relevant location information
 externalDocs:
-  description: OpenCage Geocoder Website
+  description: OpenCage Geocoder API documentation
   url: https://opencagedata.com/api
 paths:
   /json:
     get:
       description: Geocode (JSON)
       operationId: get-json
+      tags:
+        - Geocoding
+        - Reverse Geocoding
       parameters:
         - $ref: '#/components/parameters/query'
         - $ref: '#/components/parameters/abbrv'
@@ -129,6 +137,9 @@ paths:
     get:
       operationId: get-xml
       description: Geocode (XML)
+      tags:
+        - Geocoding
+        - Reverse Geocoding
       parameters:
         - $ref: '#/components/parameters/query'
         - $ref: '#/components/parameters/abbrv'
@@ -230,6 +241,9 @@ paths:
     get:
       operationId: get-geojson
       description: Geocode (GeoJSON)
+      tags:
+        - Geocoding
+        - Reverse Geocoding
       parameters:
         - $ref: '#/components/parameters/query'
         - $ref: '#/components/parameters/address_only'
@@ -335,117 +349,133 @@ components:
       description: 30 character long, alphanumeric string unique to your account. See https://opencagedata.com/api#required-params
   parameters:
     query:
+      name: q
       description: string or lat,lng to be geocoded. ex Eiffel tower or 52.3877830, 9.7334394
       in: query
+      example: 52.3877830, 9.7334394
       required: true
       schema:
-        name: q
         type: string
     abbrv:
       description: when true we attempt to abbreviate the formatted field of results.
       in: query
+      name: abbrv
       required: false
       schema:
         type: boolean
-        name: abbrv
+        default: false
     address_only:
+      name: address_only
       description: when true we include only address details in the formatted field of results.
       in: query
       required: false
       schema:
-        name: address_only
         type: boolean
+        default: false
     add_request:
+      name: add_request
       in: query
       description: if true the request is included in the response.
       required: false
       schema:
-        name: add_request
+        default: false
         type: boolean
     bounds:
       in: query
       description: four coordinate points forming the south-west and north-east corners of a bounding box (min long, min lat, max long, max lat).
+      name: bounds
       required: false
       schema:
-        name: bounds
         type: string
+        example: '-0.563160,51.280430,0.278970,51.683979'
     countrycode:
+      name: countrycode
       description: CSV list of two letter ISO 3166-1 Alpha 2 codes) to limit results to that country/countries.
       in: query
       required: false
       schema:
-        name: countrycode
+        example: de,at,ch,li,lu
         type: string
     jsonp:
+      name: jsonp
       description: wraps the returned JSON with a function name.
       in: query
       required: false
+      example: myfunc
       schema:
-        name: jsonp
         type: string
     language:
       description: 'an IETF format language code (ex: "es" or "pt-BR").'
+      name: language
       in: query
       required: false
+      example: de
       schema:
-        name: language
         type: string
     limit:
+      name: limit
       description: maximum number of results to return. Default is 10. Maximum is 100.
       in: query
       required: false
+      example: 1
       schema:
-        name: limit
         type: integer
     min_confidence:
+      name: min_confidence
       description: integer from 1-10. Only results with at least this confidence are returned.
       in: query
       required: false
+      example: 5
       schema:
-        name: min_confidence
         type: integer
     no_annotations:
+      name: no_annotations
       description: when true annotations are not added to results.
       in: query
       required: false
       schema:
-        name: no_annotations
         type: boolean
+        default: false
     no_dedupe:
+      name: no_dedupe
       description: when true results are not deduplicated.
       in: query
       required: false
       schema:
-        name: no_dedupe
         type: boolean
+        default: false
     no_record:
+      name: no_record
       description: when true query content is not logged.
       in: query
       required: false
       schema:
-        name: no_record
         type: boolean
+        default: false
     pretty:
+      name: pretty
       description: when true results are pretty printed. Useful for debugging.
       in: query
       required: false
       schema:
-        name: pretty
         type: boolean
+        default: false
     proximity:
+      name: proximity
       description: lat,lng to bias results.
       in: query
       required: false
+      example: 52.3877830,9.7334394
       schema:
-        name: proximity
         type: string
     roadinfo:
+      name: roadinfo
       description: when true we geocode to nearest road, include roadinfo annotation
       in: query
       required: false
       schema:
-        name: roadinfo
         type: boolean
+        default: false
   headers:
     ratelimit-limit:
       description: '**Non-subscription customers only.** Total number of API requests your account is limited to over given time period (24 hours for free trials).'
@@ -792,7 +822,6 @@ components:
                         type: string
                     required:
                       - words
-                required: null
               bounds:
                 type: object
                 properties:

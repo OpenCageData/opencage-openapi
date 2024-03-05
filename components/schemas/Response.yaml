@@ -317,7 +317,6 @@ properties:
                   type: string
               required:
                 - words
-          required:
         bounds:
           type: object
           properties:
