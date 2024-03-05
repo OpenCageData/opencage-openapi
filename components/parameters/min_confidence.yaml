@@ -1,0 +1,6 @@
+description: integer from 1-10. Only results with at least this confidence are returned.
+in: query
+required: false
+schema:
+  name: min_confidence
+  type: integer

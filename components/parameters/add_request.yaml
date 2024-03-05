@@ -1,0 +1,6 @@
+in: query
+description: if true the request is included in the response.
+required: false
+schema:
+  name: add_request
+  type: boolean

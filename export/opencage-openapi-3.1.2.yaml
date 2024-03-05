@@ -25,15 +25,28 @@ externalDocs:
   url: https://opencagedata.com/api
 paths:
   description: |
-    see https://opencagedata.com/api#request
-    /google-v3-json exists but is not supported and will be deprecated
+    see https://opencagedata.com/api#request google-v3-json exists but is not supported and will be deprecated
   /json:
     get:
       description: Geocode (JSON)
       operationId: get-json
       parameters:
         - $ref: '#/components/parameters/query'
-        - $ref: '#/components/parameters/optional-params'
+        - $ref: '#/components/parameters/abbrv'
+        - $ref: '#/components/parameters/address_only'
+        - $ref: '#/components/parameters/add_request'
+        - $ref: '#/components/parameters/bounds'
+        - $ref: '#/components/parameters/countrycode'
+        - $ref: '#/components/parameters/jsonp'
+        - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/min_confidence'
+        - $ref: '#/components/parameters/no_annotations'
+        - $ref: '#/components/parameters/no_dedupe'
+        - $ref: '#/components/parameters/no_record'
+        - $ref: '#/components/parameters/pretty'
+        - $ref: '#/components/parameters/proximity'
+        - $ref: '#/components/parameters/roadinfo'
       responses:
         '200':
           description: OK
@@ -114,34 +127,27 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Response'
-  /geojson:
-    get:
-      operationId: get-geojson
-      description: Geocode (GeoJSON)
-      parameters:
-        - $ref: '#/components/parameters/query'
-        - $ref: '#/components/parameters/optional-params'
-      responses:
-        '200':
-          description: OK
-          headers:
-            X-RateLimit-Limit:
-              $ref: '#/components/headers/ratelimit-limit'
-            X-RateLimit-Remaining:
-              $ref: '#/components/headers/ratelimit-remaining'
-            X-RateLimit-Reset:
-              $ref: '#/components/headers/ratelimit-reset'
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: '#/components/schemas/GetGeojson200ResponseBody'
   /xml:
     get:
       operationId: get-xml
       description: Geocode (XML)
       parameters:
         - $ref: '#/components/parameters/query'
-        - $ref: '#/components/parameters/optional-params'
+        - $ref: '#/components/parameters/abbrv'
+        - $ref: '#/components/parameters/address_only'
+        - $ref: '#/components/parameters/add_request'
+        - $ref: '#/components/parameters/bounds'
+        - $ref: '#/components/parameters/countrycode'
+        - $ref: '#/components/parameters/jsonp'
+        - $ref: '#/components/parameters/language'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/min_confidence'
+        - $ref: '#/components/parameters/no_annotations'
+        - $ref: '#/components/parameters/no_dedupe'
+        - $ref: '#/components/parameters/no_record'
+        - $ref: '#/components/parameters/pretty'
+        - $ref: '#/components/parameters/proximity'
+        - $ref: '#/components/parameters/roadinfo'
       responses:
         '200':
           description: OK
@@ -232,87 +238,116 @@ components:
   parameters:
     query:
       description: string or lat,lng to be geocoded. ex Eiffel tower or 52.3877830, 9.7334394
+      in: query
       required: true
       schema:
-        type: string
-        in: query
         name: q
-    optional-params:
-      - name: abbrv
-        in: query
-        description: when true we attempt to abbreviate the formatted field of results.
-        schema:
-          type: boolean
-      - name: address_only
-        in: query
-        description: when true we include only address details in the formatted field of results.
-        schema:
-          type: boolean
-      - name: add_request
-        in: query
-        description: if true the request is included in the response.
-        schema:
-          type: boolean
-      - name: bounds
-        in: query
-        description: four coordinate points forming the south-west and north-east corners of a bounding box (min long, min lat, max long, max lat).
-        schema:
-          type: string
-      - name: countrycode
-        in: query
-        description: CSV list of two letter ISO 3166-1 Alpha 2 codes) to limit results to that country/counties
-        schema:
-          type: string
-      - name: jsonp
-        in: query
-        description: wraps the returned JSON with a function name.
-        schema:
-          type: string
-      - name: language
-        in: query
-        description: 'an IETF format language code (ex: ''es'' or ''pt-BR'').'
-        schema:
-          type: string
-      - name: limit
-        in: query
-        description: maximum number of results to return. Default is 10. Maximum is 100.
-        schema:
-          type: integer
-      - name: min_confidence
-        in: query
-        description: integer from 1-10. Only results with at least this confidence are returned.
-        schema:
-          type: integer
-      - name: no_annotations
-        in: query
-        description: when true annotations are not added to results.
-        schema:
-          type: boolean
-      - name: no_dedupe
-        in: query
-        description: when true results are not deduplicated.
-        schema:
-          type: boolean
-      - name: no_record
-        in: query
-        description: when true query content is not logged.
-        schema:
-          type: boolean
-      - name: pretty
-        in: query
-        description: when true results are pretty printed. Useful for debugging.
-        schema:
-          type: boolean
-      - name: proximity
-        in: query
-        description: lat,lng to bias results.
-        schema:
-          type: string
-      - name: roadinfo
-        in: query
-        description: match nearest road, include roadinfo annotation
-        schema:
-          type: boolean
+        type: string
+    abbrv:
+      description: when true we attempt to abbreviate the formatted field of results.
+      in: query
+      required: false
+      schema:
+        type: boolean
+        name: abbrv
+    address_only:
+      description: when true we include only address details in the formatted field of results.
+      in: query
+      required: false
+      schema:
+        name: address_only
+        type: boolean
+    add_request:
+      in: query
+      description: if true the request is included in the response.
+      required: false
+      schema:
+        name: add_request
+        type: boolean
+    bounds:
+      in: query
+      description: four coordinate points forming the south-west and north-east corners of a bounding box (min long, min lat, max long, max lat).
+      required: false
+      schema:
+        name: bounds
+        type: string
+    countrycode:
+      description: CSV list of two letter ISO 3166-1 Alpha 2 codes) to limit results to that country/countries.
+      in: query
+      required: false
+      schema:
+        name: countrycode
+        type: string
+    jsonp:
+      description: wraps the returned JSON with a function name.
+      in: query
+      required: false
+      schema:
+        name: jsonp
+        type: string
+    language:
+      description: 'an IETF format language code (ex: "es" or "pt-BR").'
+      in: query
+      required: false
+      schema:
+        name: language
+        type: string
+    limit:
+      description: maximum number of results to return. Default is 10. Maximum is 100.
+      in: query
+      required: false
+      schema:
+        name: limit
+        type: integer
+    min_confidence:
+      description: integer from 1-10. Only results with at least this confidence are returned.
+      in: query
+      required: false
+      schema:
+        name: min_confidence
+        type: integer
+    no_annotations:
+      description: when true annotations are not added to results.
+      in: query
+      required: false
+      schema:
+        name: no_annotations
+        type: boolean
+    no_dedupe:
+      description: when true results are not deduplicated.
+      in: query
+      required: false
+      schema:
+        name: no_dedupe
+        type: boolean
+    no_record:
+      description: when true query content is not logged.
+      in: query
+      required: false
+      schema:
+        name: no_record
+        type: boolean
+    pretty:
+      description: when true results are pretty printed. Useful for debugging.
+      in: query
+      required: false
+      schema:
+        name: pretty
+        type: boolean
+    proximity:
+      description: lat,lng to bias results.
+      in: query
+      required: false
+      schema:
+        name: proximity
+        type: string
+    roadinfo:
+      description: when true we geocode to nearest road, include roadinfo annotation
+      in: query
+      required: false
+      schema:
+        name: roadinfo
+        type: boolean
   headers:
     ratelimit-limit:
       description: '**Non-subscription customers only.** Total number of API requests your account is limited to over given time period (24 hours for free trials).'
@@ -770,460 +805,3 @@ components:
         total_results:
           type: integer
       type: object
-    GetGeojson200ResponseBody:
-      type: object
-      properties:
-        documentation:
-          type: string
-        features:
-          type: array
-          items:
-            type: object
-            properties:
-              geometry:
-                type: object
-                properties:
-                  coordinates:
-                    type: array
-                    items:
-                      type: number
-                  type:
-                    type: string
-                required:
-                  - coordinates
-                  - type
-              properties:
-                type: object
-                properties:
-                  annotations:
-                    type: object
-                    properties:
-                      DMS:
-                        type: object
-                        properties:
-                          lat:
-                            type: string
-                          lng:
-                            type: string
-                        required:
-                          - lat
-                          - lng
-                      FIPS:
-                        type: object
-                        properties:
-                          county:
-                            type: string
-                          state:
-                            type: string
-                        required:
-                          - state
-                      MGRS:
-                        type: string
-                      Maidenhead:
-                        type: string
-                      Mercator:
-                        type: object
-                        properties:
-                          x:
-                            type: number
-                          'y':
-                            type: number
-                        required:
-                          - x
-                          - 'y'
-                      OSM:
-                        type: object
-                        properties:
-                          edit_url:
-                            type: string
-                          note_url:
-                            type: string
-                          url:
-                            type: string
-                        required:
-                          - note_url
-                          - url
-                      UN_M49:
-                        type: object
-                        properties:
-                          regions:
-                            type: object
-                            properties:
-                              AMERICAS:
-                                type: string
-                              NORTHERN_AMERICA:
-                                type: string
-                              US:
-                                type: string
-                              WORLD:
-                                type: string
-                              DE:
-                                type: string
-                              EUROPE:
-                                type: string
-                              WESTERN_EUROPE:
-                                type: string
-                            required:
-                              - WORLD
-                          statistical_groupings:
-                            type: array
-                            items:
-                              type: string
-                        required:
-                          - regions
-                          - statistical_groupings
-                      callingcode:
-                        type: number
-                      currency:
-                        type: object
-                        properties:
-                          alternate_symbols:
-                            type: array
-                            items:
-                              type: string
-                          decimal_mark:
-                            type: string
-                          disambiguate_symbol:
-                            type: string
-                          html_entity:
-                            type: string
-                          iso_code:
-                            type: string
-                          iso_numeric:
-                            type: string
-                          name:
-                            type: string
-                          smallest_denomination:
-                            type: number
-                          subunit:
-                            type: string
-                          subunit_to_unit:
-                            type: number
-                          symbol:
-                            type: string
-                          symbol_first:
-                            type: number
-                          thousands_separator:
-                            type: string
-                        required:
-                          - alternate_symbols
-                          - decimal_mark
-                          - html_entity
-                          - iso_code
-                          - iso_numeric
-                          - name
-                          - smallest_denomination
-                          - subunit
-                          - subunit_to_unit
-                          - symbol
-                          - symbol_first
-                          - thousands_separator
-                      flag:
-                        type: string
-                      geohash:
-                        type: string
-                      qibla:
-                        type: number
-                      roadinfo:
-                        type: object
-                        properties:
-                          drive_on:
-                            type: string
-                          road:
-                            type: string
-                          speed_in:
-                            type: string
-                        required:
-                          - drive_on
-                          - speed_in
-                      sun:
-                        type: object
-                        properties:
-                          rise:
-                            type: object
-                            properties:
-                              apparent:
-                                type: number
-                              astronomical:
-                                type: number
-                              civil:
-                                type: number
-                              nautical:
-                                type: number
-                            required:
-                              - apparent
-                              - astronomical
-                              - civil
-                              - nautical
-                          set:
-                            type: object
-                            properties:
-                              apparent:
-                                type: number
-                              astronomical:
-                                type: number
-                              civil:
-                                type: number
-                              nautical:
-                                type: number
-                            required:
-                              - apparent
-                              - astronomical
-                              - civil
-                              - nautical
-                        required:
-                          - rise
-                          - set
-                      timezone:
-                        type: object
-                        properties:
-                          name:
-                            type: string
-                          now_in_dst:
-                            type: number
-                          offset_sec:
-                            type: number
-                          offset_string:
-                            type: string
-                          short_name:
-                            type: string
-                        required:
-                          - name
-                          - now_in_dst
-                          - offset_sec
-                          - offset_string
-                          - short_name
-                      what3words:
-                        type: object
-                        properties:
-                          words:
-                            type: string
-                        required:
-                          - words
-                      NUTS:
-                        type: object
-                        properties:
-                          NUTS0:
-                            type: object
-                            properties:
-                              code:
-                                type: string
-                            required:
-                              - code
-                          NUTS1:
-                            type: object
-                            properties:
-                              code:
-                                type: string
-                            required:
-                              - code
-                          NUTS2:
-                            type: object
-                            properties:
-                              code:
-                                type: string
-                            required:
-                              - code
-                          NUTS3:
-                            type: object
-                            properties:
-                              code:
-                                type: string
-                            required:
-                              - code
-                        required:
-                          - NUTS0
-                          - NUTS1
-                          - NUTS2
-                          - NUTS3
-                    required:
-                      - DMS
-                      - MGRS
-                      - Maidenhead
-                      - Mercator
-                      - OSM
-                      - UN_M49
-                      - callingcode
-                      - currency
-                      - flag
-                      - geohash
-                      - qibla
-                      - roadinfo
-                      - sun
-                      - timezone
-                      - what3words
-                  bounds:
-                    type: object
-                    properties:
-                      northeast:
-                        type: object
-                        properties:
-                          lat:
-                            type: number
-                          lng:
-                            type: number
-                        required:
-                          - lat
-                          - lng
-                      southwest:
-                        type: object
-                        properties:
-                          lat:
-                            type: number
-                          lng:
-                            type: number
-                        required:
-                          - lat
-                          - lng
-                    required:
-                      - northeast
-                      - southwest
-                  components:
-                    type: object
-                    properties:
-                      ISO_3166-1_alpha-2:
-                        type: string
-                      ISO_3166-1_alpha-3:
-                        type: string
-                      ISO_3166-2:
-                        type: array
-                        items:
-                          type: string
-                      _category:
-                        type: string
-                      _type:
-                        type: string
-                      borough:
-                        type: string
-                      city:
-                        type: string
-                      continent:
-                        type: string
-                      country:
-                        type: string
-                      country_code:
-                        type: string
-                      county:
-                        type: string
-                      house_number:
-                        type: string
-                      neighbourhood:
-                        type: string
-                      postcode:
-                        type: string
-                      road:
-                        type: string
-                      state:
-                        type: string
-                      state_code:
-                        type: string
-                      town:
-                        type: string
-                      village:
-                        type: string
-                      city_district:
-                        type: string
-                      office:
-                        type: string
-                      political_union:
-                        type: string
-                      suburb:
-                        type: string
-                    required:
-                      - ISO_3166-1_alpha-2
-                      - ISO_3166-1_alpha-3
-                      - ISO_3166-2
-                      - _category
-                      - _type
-                      - continent
-                      - country
-                      - country_code
-                      - state
-                      - state_code
-                  confidence:
-                    type: number
-                  formatted:
-                    type: string
-                required:
-                  - annotations
-                  - components
-                  - confidence
-                  - formatted
-              type:
-                type: string
-            required:
-              - geometry
-              - properties
-              - type
-        licenses:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              url:
-                type: string
-            required:
-              - name
-              - url
-        rate:
-          type: object
-          properties:
-            limit:
-              type: number
-            remaining:
-              type: number
-            reset:
-              type: number
-          required:
-            - limit
-            - remaining
-            - reset
-        status:
-          type: object
-          properties:
-            code:
-              type: number
-            message:
-              type: string
-          required:
-            - code
-            - message
-        stay_informed:
-          type: object
-          properties:
-            blog:
-              type: string
-            mastodon:
-              type: string
-          required:
-            - blog
-            - mastodon
-        thanks:
-          type: string
-        timestamp:
-          type: object
-          properties:
-            created_http:
-              type: string
-            created_unix:
-              type: number
-          required:
-            - created_http
-            - created_unix
-        total_results:
-          type: number
-        type:
-          type: string
-      required:
-        - documentation
-        - features
-        - licenses
-        - rate
-        - status
-        - stay_informed
-        - thanks
-        - timestamp
-        - total_results
-        - type

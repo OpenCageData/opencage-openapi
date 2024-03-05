@@ -1,0 +1,6 @@
+description: lat,lng to bias results.
+in: query
+required: false
+schema:
+  name: proximity
+  type: string

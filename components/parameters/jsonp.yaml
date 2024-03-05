@@ -1,0 +1,6 @@
+description: wraps the returned JSON with a function name.
+in: query
+required: false
+schema:
+  name: jsonp
+  type: string

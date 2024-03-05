@@ -1,0 +1,6 @@
+description: when true query content is not logged.
+in: query
+required: false
+schema:
+  name: no_record
+  type: boolean

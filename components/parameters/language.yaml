@@ -1,0 +1,6 @@
+description: 'an IETF format language code (ex: "es" or "pt-BR").'
+in: query
+required: false
+schema:
+  name: language
+  type: string

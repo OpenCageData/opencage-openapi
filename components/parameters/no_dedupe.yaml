@@ -1,0 +1,6 @@
+description: when true results are not deduplicated.
+in: query
+required: false
+schema:
+  name: no_dedupe
+  type: boolean

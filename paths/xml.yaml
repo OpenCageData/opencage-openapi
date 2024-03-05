@@ -3,7 +3,21 @@ get:
   description: Geocode (XML)
   parameters:
     - $ref: ../components/parameters/query.yaml
-    - $ref: ../components/parameters/optional-params.yaml
+    - $ref: ../components/parameters/abbrv.yaml
+    - $ref: ../components/parameters/address_only.yaml
+    - $ref: ../components/parameters/add_request.yaml
+    - $ref: ../components/parameters/bounds.yaml
+    - $ref: ../components/parameters/countrycode.yaml
+    - $ref: ../components/parameters/jsonp.yaml
+    - $ref: ../components/parameters/language.yaml
+    - $ref: ../components/parameters/limit.yaml
+    - $ref: ../components/parameters/min_confidence.yaml
+    - $ref: ../components/parameters/no_annotations.yaml
+    - $ref: ../components/parameters/no_dedupe.yaml
+    - $ref: ../components/parameters/no_record.yaml
+    - $ref: ../components/parameters/pretty.yaml
+    - $ref: ../components/parameters/proximity.yaml
+    - $ref: ../components/parameters/roadinfo.yaml    
   responses:
     '200':
       description: OK

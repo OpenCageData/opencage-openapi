@@ -1,0 +1,6 @@
+description: when true annotations are not added to results.
+in: query
+required: false
+schema:
+  name: no_annotations
+  type: boolean
