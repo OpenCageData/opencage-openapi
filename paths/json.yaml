@@ -14,7 +14,6 @@ get:
     - $ref: ../components/parameters/jsonp.yaml
     - $ref: ../components/parameters/language.yaml
     - $ref: ../components/parameters/limit.yaml
-    - $ref: ../components/parameters/min_confidence.yaml
     - $ref: ../components/parameters/no_annotations.yaml
     - $ref: ../components/parameters/no_dedupe.yaml
     - $ref: ../components/parameters/no_record.yaml
