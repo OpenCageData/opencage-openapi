@@ -27,3 +27,19 @@ Using [Redocly CLI](https://redocly.com/redocly-cli/) you can bundle multiple do
 ```bash
 redocly bundle openapi.yaml -o export/opencage-openapi-3.1.0.yaml
 ```
+
+## Linting with spectral
+
+[Background on spectral](https://stoplight.io/open-source/spectral)
+
+```bash
+# install spectral
+npm install -g @stoplight/spectral-cli
+
+# create a conf file
+echo 'extends: ["spectral:oas"]' > .spectral.yaml
+
+# run the linter
+spectral lint opencage-openapi/export/opencage-openapi-3.1.2.yaml
+
+```
