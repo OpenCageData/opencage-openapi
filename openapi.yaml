@@ -31,14 +31,12 @@ security:
   - ApiKeyAuth: []
 
 paths:
-  description: >
-    see https://opencagedata.com/api#request
-    google-v3-json exists but is not supported and will be deprecated
-
   /json:
     $ref: paths/json.yaml
   /xml:
     $ref: paths/xml.yaml
+  /geojson:
+    $ref: paths/geojson.yaml
 
 components:
   securitySchemes:

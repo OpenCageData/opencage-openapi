@@ -31,3 +31,69 @@ get:
         application/json; charset=utf-8:
           schema:
             $ref: ../components/schemas/GetGeojson200ResponseBody.yaml
+    '400':
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
+    '401':
+      description: Unable to authenticate
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
+    '402':
+      description: Valid request but quota exceeded
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
+    '404':
+      description: Invalid API endpoint
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
+    '405':
+      description: Method not allowed
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
+    '408':
+      description: Timeout; you can try again
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
+    '410':
+      description: Request too long
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
+    '426':
+      description: Upgrade required
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
+    '429':
+      description: Too many requests
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
+    '503':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
