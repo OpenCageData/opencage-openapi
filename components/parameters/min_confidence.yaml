@@ -1,7 +1,0 @@
-name: min_confidence
-description: integer from 1-10. Only results with at least this confidence are returned.
-in: query
-required: false
-example: 5
-schema:  
-  type: integer
