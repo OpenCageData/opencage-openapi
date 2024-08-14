@@ -1,6 +1,7 @@
 openapi: 3.0.3
 info:
   contact:
+    email: support@opencagedata.com
     name: OpenCage GmbH
     url: https://opencagedata.com/contact
   version: 1.1.0
@@ -127,6 +128,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Response'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
         '503':
           description: Internal server error
           content:
@@ -231,6 +238,12 @@ paths:
             text/xml; charset=utf-8:
               schema:
                 $ref: '#/components/schemas/Response'
+        '500':
+          description: Internal server error
+          content:
+            text/xml; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/Response'
         '503':
           description: Internal server error
           content:
@@ -330,6 +343,12 @@ paths:
                 $ref: '#/components/schemas/Response'
         '429':
           description: Too many requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        '500':
+          description: Internal server error
           content:
             application/json:
               schema:
