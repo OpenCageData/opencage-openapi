@@ -44,6 +44,7 @@ spectral lint opencage-openapi/export/opencage-openapi-3.1.2.yaml
 
 ```
 
+## Publishing a new file
 
 to "publish" copy the file manually to the `opencagedata-geocoder-app` repo
 into `public/openapi.yaml` 
