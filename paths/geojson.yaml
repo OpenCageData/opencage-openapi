@@ -1,6 +1,7 @@
 get:
-  operationId: get-geojson
   description: Geocode (GeoJSON)
+  operationId: get-geojson
+  summary: request a GeoJSON geocoding response
   tags:
     - Geocoding
     - Reverse Geocoding

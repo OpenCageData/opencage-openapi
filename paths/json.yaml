@@ -1,6 +1,7 @@
 get:
   description: Geocode (JSON)
   operationId: get-json
+  summary: request a JSON geocoding response
   tags:
     - Geocoding
     - Reverse Geocoding  

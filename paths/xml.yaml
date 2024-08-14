@@ -1,6 +1,7 @@
 get:
-  operationId: get-xml
   description: Geocode (XML)
+  operationId: get-xml
+  summary: request an XML geocoding response
   tags:
     - Geocoding
     - Reverse Geocoding  
