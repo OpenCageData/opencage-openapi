@@ -33,6 +33,7 @@ paths:
     get:
       description: Geocode (JSON)
       operationId: get-json
+      summary: request a JSON geocoding response
       tags:
         - Geocoding
         - Reverse Geocoding
@@ -46,7 +47,6 @@ paths:
         - $ref: '#/components/parameters/jsonp'
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/limit'
-        - $ref: '#/components/parameters/min_confidence'
         - $ref: '#/components/parameters/no_annotations'
         - $ref: '#/components/parameters/no_dedupe'
         - $ref: '#/components/parameters/no_record'
@@ -135,8 +135,9 @@ paths:
                 $ref: '#/components/schemas/Response'
   /xml:
     get:
-      operationId: get-xml
       description: Geocode (XML)
+      operationId: get-xml
+      summary: request an XML geocoding response
       tags:
         - Geocoding
         - Reverse Geocoding
@@ -150,7 +151,6 @@ paths:
         - $ref: '#/components/parameters/jsonp'
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/limit'
-        - $ref: '#/components/parameters/min_confidence'
         - $ref: '#/components/parameters/no_annotations'
         - $ref: '#/components/parameters/no_dedupe'
         - $ref: '#/components/parameters/no_record'
@@ -239,8 +239,9 @@ paths:
                 $ref: '#/components/schemas/Response'
   /geojson:
     get:
-      operationId: get-geojson
       description: Geocode (GeoJSON)
+      operationId: get-geojson
+      summary: request a GeoJSON geocoding response
       tags:
         - Geocoding
         - Reverse Geocoding
@@ -253,7 +254,6 @@ paths:
         - $ref: '#/components/parameters/jsonp'
         - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/limit'
-        - $ref: '#/components/parameters/min_confidence'
         - $ref: '#/components/parameters/no_annotations'
         - $ref: '#/components/parameters/no_dedupe'
         - $ref: '#/components/parameters/no_record'
@@ -420,14 +420,8 @@ components:
       example: 1
       schema:
         type: integer
-    min_confidence:
-      name: min_confidence
-      description: integer from 1-10. Only results with at least this confidence are returned.
-      in: query
-      required: false
-      example: 5
-      schema:
-        type: integer
+        minimum: 1
+        maximum: 100
     no_annotations:
       name: no_annotations
       description: when true annotations are not added to results.
