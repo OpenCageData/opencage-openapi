@@ -94,6 +94,12 @@ get:
         application/json:
           schema:
             $ref: ../components/schemas/Response.yaml
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
     '503':
       description: Internal server error
       content:

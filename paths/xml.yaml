@@ -95,6 +95,12 @@ get:
         text/xml; charset=utf-8:
           schema:
             $ref: ../components/schemas/Response.yaml
+    '500':
+      description: Internal server error
+      content:
+        text/xml; charset=utf-8:
+          schema:
+            $ref: ../components/schemas/Response.yaml
     '503':
       description: Internal server error
       content:
