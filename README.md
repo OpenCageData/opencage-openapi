@@ -44,6 +44,11 @@ spectral lint opencage-openapi/export/opencage-openapi-3.1.2.yaml
 
 ```
 
+
+## Online linter
+
+See [ratemyopenapi](https://ratemyopenapi.com/)
+
 ## Publishing a new file
 
 to "publish" copy the file manually to the `opencagedata-geocoder-app` repo
