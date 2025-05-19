@@ -1,5 +1,5 @@
 # opencage-openapi
-An effort to improve the OpenAPI for OpenCage Geocoder API.
+Generate and [OpenAPI file](https://www.openapis.org/) for the OpenCage Geocoding API.
 
 ## File Structure
 
