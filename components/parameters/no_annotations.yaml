@@ -2,6 +2,9 @@ name: no_annotations
 description: when true annotations are not added to results.
 in: query
 required: false
+externalDocs:
+  description: no_annotations parameter documentation
+  url: https://opencagedata.com/api#no_annotations-param
 schema:  
   type: boolean
   default: false

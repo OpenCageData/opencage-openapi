@@ -1,9 +1,14 @@
 in: query
 description: >-
   four coordinate points forming the south-west and north-east corners of
-  a bounding box (min long, min lat, max long, max lat).
+  a bounding box
 name: bounds
 required: false
+externalDocs:
+  description: bound parameter documentation
+  url: https://opencagedata.com/api#bounds-param
 schema:
   type: string
-  example: -0.563160,51.280430,0.278970,51.683979
+  description: decimal coordinates in min long, min lat, max long, max lat order
+  examples:
+    - -0.563160,51.280430,0.278970,51.683979

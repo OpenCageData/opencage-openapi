@@ -2,6 +2,14 @@ name: proximity
 description: lat,lng to bias results.
 in: query
 required: false
-example: 52.3877830,9.7334394
+externalDocs:
+  description: proximity parameter documentation
+  url: https://opencagedata.com/api#proximity-param
 schema:
   type: string
+  description: Latitude and longitude decimal coordinates to bias results toward
+  pattern: ^-?[0-9]{1,2}(\.[0-9]+)?,\s*-?[0-9]{1,3}(\.[0-9]+)?$
+  examples:
+  - 52.3877830,9.7334394
+  - 51.522618,-0.102530
+  - 42.359578,-71.091982

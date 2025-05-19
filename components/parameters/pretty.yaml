@@ -2,6 +2,9 @@ name: pretty
 description: when true results are pretty printed. Useful for debugging.
 in: query
 required: false
+externalDocs:
+  description: pretty parameter documentation
+  url: https://opencagedata.com/api#pretty-param
 schema:  
   type: boolean
   default: false

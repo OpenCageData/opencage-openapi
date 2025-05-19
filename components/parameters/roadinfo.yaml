@@ -2,6 +2,9 @@ name: roadinfo
 description: when true we geocode to nearest road, include roadinfo annotation
 in: query
 required: false
+externalDocs:
+  description: roadinfo parameter documentation
+  url: https://opencagedata.com/api#roadinfo-param
 schema:
   type: boolean
   default: false

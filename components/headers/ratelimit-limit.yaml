@@ -1,5 +1,9 @@
 description: >-
   **Non-subscription customers only.** Total number of API requests your account is limited to over given time period (24 hours for free trials).
+externalDocs:
+  description: rate limit documentation
+  url: https://opencagedata.com/api#rate-limiting
 schema:
   type: integer
-example: 2500
+  examples:
+    - 2500
