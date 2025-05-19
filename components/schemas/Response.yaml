@@ -5,8 +5,7 @@ properties:
     description: URL to the API documentation
     format: uri
   rate:
-    type: object
-    nullable: true
+    type: ["object", "null"]
     description: Rate limit information. Not present for subscription customers.
     properties:
       limit:
