@@ -381,11 +381,11 @@ components:
       schema:
         type: string
         description: Location to geocode - can be an address, place name, or decimal coordinates in latitude, longitude order
+        minLength: 2
         examples:
           - 52.5432379, 13.4142133
           - Times Square, New York, USA
           - Eiffel Tower
-        minLength: 2
     abbrv:
       description: when true we attempt to abbreviate the formatted field of results.
       in: query
@@ -505,7 +505,7 @@ components:
         default: false
     no_dedupe:
       name: no_dedupe
-      description: when true results are not deduplicated.
+      description: when true results are not deduplicated
       in: query
       required: false
       externalDocs:
@@ -516,7 +516,7 @@ components:
         default: false
     no_record:
       name: no_record
-      description: when true query content is not logged.
+      description: when true query content is not logged
       in: query
       required: false
       externalDocs:
@@ -527,7 +527,7 @@ components:
         default: false
     pretty:
       name: pretty
-      description: when true results are pretty printed. Useful for debugging.
+      description: when true results are pretty printed
       in: query
       required: false
       externalDocs:
@@ -538,7 +538,7 @@ components:
         default: false
     proximity:
       name: proximity
-      description: lat,lng to bias results.
+      description: lat,lng to bias results
       in: query
       required: false
       externalDocs:
@@ -549,7 +549,7 @@ components:
         description: Latitude and longitude decimal coordinates to bias results toward
         pattern: ^-?[0-9]{1,2}(\.[0-9]+)?,\s*-?[0-9]{1,3}(\.[0-9]+)?$
         examples:
-          - 52.3877830,9.7334394
+          - 52.3877830, 9.7334394
           - 51.522618,-0.102530
           - 42.359578,-71.091982
     roadinfo:
