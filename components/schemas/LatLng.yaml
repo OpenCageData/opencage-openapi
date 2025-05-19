@@ -1,8 +1,26 @@
 type: object
+description: Geographic coordinates (latitude and longitude)
 properties:
   lat:
     type: number
-    format: float
+    description: Latitude coordinate in decimal degrees
+    format: double
+    minimum: -90
+    maximum: 90
+    examples:
+      - 40.7128
+      - 51.5074
+      - -33.8688
   lng:
     type: number
-    format: float
+    description: Longitude coordinate in decimal degrees
+    format: double
+    minimum: -180
+    maximum: 180
+    examples:
+      - -74.006
+      - -0.1278
+      - 151.2093
+required:
+  - lat
+  - lng
