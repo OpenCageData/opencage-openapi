@@ -1,5 +1,5 @@
 name: proximity
-description: lat,lng to bias results.
+description: lat,lng to bias results
 in: query
 required: false
 externalDocs:
@@ -10,6 +10,6 @@ schema:
   description: Latitude and longitude decimal coordinates to bias results toward
   pattern: ^-?[0-9]{1,2}(\.[0-9]+)?,\s*-?[0-9]{1,3}(\.[0-9]+)?$
   examples:
-  - 52.3877830,9.7334394
-  - 51.522618,-0.102530
-  - 42.359578,-71.091982
+  - "52.3877830, 9.7334394"
+  - "51.522618,-0.102530"
+  - "42.359578,-71.091982"

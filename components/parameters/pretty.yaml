@@ -1,5 +1,5 @@
 name: pretty
-description: when true results are pretty printed. Useful for debugging.
+description: when true results are pretty printed
 in: query
 required: false
 externalDocs:

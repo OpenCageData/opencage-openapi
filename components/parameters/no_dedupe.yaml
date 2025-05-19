@@ -1,5 +1,5 @@
 name: no_dedupe
-description: when true results are not deduplicated.
+description: when true results are not deduplicated
 in: query
 required: false
 externalDocs:
