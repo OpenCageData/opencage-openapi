@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.3
 info:
   contact:
     email: support@opencagedata.com
@@ -14,7 +14,7 @@ info:
   x-origin:
     format: openapi
     url: https://opencagedata.com/openapi.yaml
-    version: 3.0.3
+    version: 3.1.3
   x-logo:
     url: https://opencagedata.com/opencagelogo-green.png
 servers:
@@ -627,8 +627,9 @@ components:
           description: URL to the API documentation
           format: uri
         rate:
-          type: object
-          nullable: true
+          type:
+            - object
+            - 'null'
           description: Rate limit information. Not present for subscription customers.
           properties:
             limit:
@@ -1210,14 +1211,15 @@ components:
                 description: Properties of the geocoded location
                 properties:
                   annotations:
-                    type: object
+                    type:
+                      - object
+                      - 'null'
                     description: |
                       Additional data about the location. The annotations provided depend on 
                       the specific location being geocoded.
                     externalDocs:
                       description: Annotations documentation
                       url: https://opencagedata.com/api#annotations
-                    nullable: true
                     properties:
                       DMS:
                         type: object
@@ -1718,9 +1720,7 @@ components:
               - name
               - url
         rate:
-          type: object
           description: Rate limit information (not present for subscription customers)
-          nullable: true
           properties:
             limit:
               type: number
@@ -1735,6 +1735,9 @@ components:
             - limit
             - remaining
             - reset
+          type:
+            - object
+            - 'null'
         status:
           type: object
           description: Status information about the request
