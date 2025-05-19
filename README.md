@@ -51,6 +51,6 @@ See [ratemyopenapi](https://ratemyopenapi.com/)
 
 ## Publishing a new file
 
-to "publish" copy the file manually to the `opencagedata-geocoder-app` repo
+to "publish" copy the file from `export/` manually to the `opencagedata-geocoder-app` repo
 into `public/openapi.yaml` 
 
