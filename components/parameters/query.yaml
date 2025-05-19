@@ -8,10 +8,11 @@ externalDocs:
 schema:
   type: string
   description: Location to geocode - can be an address, place name, or decimal coordinates in latitude, longitude order
-  examples:
-    - 52.5432379, 13.4142133
-    - Times Square, New York, USA
-    - Eiffel Tower
   minLength: 2
-    
+  examples:
+    - "52.5432379, 13.4142133"
+    - "Times Square, New York, USA"
+    - "Eiffel Tower"
+
+
   
