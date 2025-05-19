@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.3
 info:
   contact:
     email: support@opencagedata.com
@@ -17,7 +17,7 @@ info:
   x-origin:
     format: openapi
     url: https://opencagedata.com/openapi.yaml
-    version: 3.0.3
+    version: 3.1.3
   x-logo:
     url: https://opencagedata.com/opencagelogo-green.png
 
