@@ -39,14 +39,13 @@ properties:
           description: Properties of the geocoded location
           properties:
             annotations:
-              type: object
+              type: ["object", "null"]
               description: |
                 Additional data about the location. The annotations provided depend on 
                 the specific location being geocoded.
               externalDocs:
                 description: Annotations documentation
                 url: https://opencagedata.com/api#annotations
-              nullable: true
               properties:
                 DMS:
                   type: object
@@ -538,9 +537,7 @@ properties:
         - name
         - url
   rate:
-    type: object
     description: Rate limit information (not present for subscription customers)
-    nullable: true
     properties:
       limit:
         type: number
@@ -555,6 +552,7 @@ properties:
       - limit
       - remaining
       - reset
+    type: ["object", "null"]      
   status:
     type: object
     description: Status information about the request
