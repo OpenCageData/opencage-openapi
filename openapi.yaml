@@ -51,4 +51,7 @@ components:
       type: apiKey
       in: query
       name: key 
-      description: 30 character long, alphanumeric string unique to your account. See https://opencagedata.com/api#required-params
+      description: 30 character long, alphanumeric string
+      externalDocs:
+        description: API key unique to your account
+        url: https://opencagedata.com/api#required-param
