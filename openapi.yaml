@@ -26,7 +26,8 @@ tags:
     description: Convert address into coordinates (latitude, longitude)and relevant location information
   - name: Reverse Geocoding
     description: Convert coordinates (latitude, longitude) into addresses and relevant location information
-
+  - name: Health
+    description: API connectivity test
 externalDocs:
   description: OpenCage Geocoder API documentation
   url: https://opencagedata.com/api
@@ -38,6 +39,8 @@ security:
   - ApiKeyAuth: []
 
 paths:
+  /ping
+    $ref: paths/ping.yaml  
   /json:
     $ref: paths/json.yaml
   /xml:

@@ -1,0 +1,15 @@
+get:
+  description: Health check endpoint to verify API availability
+  operationId: get-ping
+  summary: check API health and connectivity
+  tags:
+    - Health
+  security: []
+  responses:
+    '200':
+      description: API is reachable
+      content:
+        text/plain:
+          schema:
+            type: string
+            example: pong
