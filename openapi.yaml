@@ -39,8 +39,8 @@ security:
   - ApiKeyAuth: []
 
 paths:
-  /ping
-    $ref: paths/ping.yaml  
+  /ping:
+    $ref: paths/ping.yaml
   /json:
     $ref: paths/json.yaml
   /xml:
