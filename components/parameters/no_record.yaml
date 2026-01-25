@@ -2,7 +2,7 @@ name: no_record
 description: when true query content is not logged
 in: query
 required: false
-externalDocs:
+x-externalDocs:
   description: no_record parameter documentation
   url: https://opencagedata.com/api#no_record-param
 schema:

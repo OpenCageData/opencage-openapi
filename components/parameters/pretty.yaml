@@ -2,7 +2,7 @@ name: pretty
 description: when true results are pretty printed
 in: query
 required: false
-externalDocs:
+x-externalDocs:
   description: pretty parameter documentation
   url: https://opencagedata.com/api#pretty-param
 schema:  

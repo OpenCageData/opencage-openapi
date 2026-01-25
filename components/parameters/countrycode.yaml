@@ -2,7 +2,7 @@ name: countrycode
 description: CSV list of lowercase two letter ISO 3166-1 Alpha 2 codes to limit results to that country/countries.
 in: query
 required: false
-externalDocs:
+x-externalDocs:
   description: countrycode parameter documentation
   url: https://opencagedata.com/api#countrycode-param
 schema:

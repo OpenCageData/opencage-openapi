@@ -2,7 +2,7 @@ name: jsonp
 description: wraps the returned JSON with a function name.
 in: query
 required: false
-externalDocs:
+x-externalDocs:
   description: jsonp parameter documentation
   url: https://opencagedata.com/api#jsonp-param
 schema:

@@ -2,7 +2,7 @@ description: an IETF format language code or "native"
 name: language
 in: query
 required: false
-externalDocs:
+x-externalDocs:
   description: language parameter documentation
   url: https://opencagedata.com/api#language
 schema:

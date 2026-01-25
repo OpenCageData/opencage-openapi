@@ -2,7 +2,7 @@ name: limit
 description: maximum number of results to return. Default is 10. Maximum is 100.
 in: query
 required: false
-externalDocs:
+x-externalDocs:
   description: limit parameter documentation
   url: https://opencagedata.com/api#limit-param
 schema:  

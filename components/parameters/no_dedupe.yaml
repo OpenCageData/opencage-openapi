@@ -2,7 +2,7 @@ name: no_dedupe
 description: when true results are not deduplicated
 in: query
 required: false
-externalDocs:
+x-externalDocs:
   description: no_dedupe parameter documentation
   url: https://opencagedata.com/api#no_dedupe-param
 schema:

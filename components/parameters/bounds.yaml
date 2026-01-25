@@ -4,7 +4,7 @@ description: >-
   a bounding box
 name: bounds
 required: false
-externalDocs:
+x-externalDocs:
   description: bound parameter documentation
   url: https://opencagedata.com/api#bounds-param
 schema:

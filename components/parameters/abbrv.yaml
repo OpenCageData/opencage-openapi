@@ -2,7 +2,7 @@ description: "when true we attempt to abbreviate the formatted field of results.
 in: query
 name: abbrv
 required: false
-externalDocs:
+x-externalDocs:
   description: abbrv parameter documentation
   url: https://opencagedata.com/api#abbrv-param
 schema:

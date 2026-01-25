@@ -2,7 +2,7 @@ name: proximity
 description: lat,lng to bias results
 in: query
 required: false
-externalDocs:
+x-externalDocs:
   description: proximity parameter documentation
   url: https://opencagedata.com/api#proximity-param
 schema:

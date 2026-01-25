@@ -2,7 +2,7 @@ name: add_request
 in: query
 description: if true the request is included in the response.
 required: false
-externalDocs:
+x-externalDocs:
   description: add_request parameter documentation
   url: https://opencagedata.com/api#add_request-param
 schema:
