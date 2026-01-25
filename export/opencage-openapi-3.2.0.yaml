@@ -388,7 +388,7 @@ components:
       in: query
       name: key
       description: 30 character long, alphanumeric string
-      externalDocs:
+      x-externalDocs:
         description: API key unique to your account
         url: https://opencagedata.com/api#required-param
   parameters:
@@ -397,7 +397,7 @@ components:
       description: string or lat,lng to be geocoded
       in: query
       required: true
-      externalDocs:
+      x-externalDocs:
         description: q parameter documentation
         url: https://opencagedata.com/api#q-param
       schema:
@@ -413,7 +413,7 @@ components:
       in: query
       name: abbrv
       required: false
-      externalDocs:
+      x-externalDocs:
         description: abbrv parameter documentation
         url: https://opencagedata.com/api#abbrv-param
       schema:
@@ -424,7 +424,7 @@ components:
       description: when true we include only address details in the formatted field of results.
       in: query
       required: false
-      externalDocs:
+      x-externalDocs:
         description: address_only parameter documentation
         url: https://opencagedata.com/api#address_only-param
       schema:
@@ -435,7 +435,7 @@ components:
       in: query
       description: if true the request is included in the response.
       required: false
-      externalDocs:
+      x-externalDocs:
         description: add_request parameter documentation
         url: https://opencagedata.com/api#add_request-param
       schema:
@@ -446,7 +446,7 @@ components:
       description: four coordinate points forming the south-west and north-east corners of a bounding box
       name: bounds
       required: false
-      externalDocs:
+      x-externalDocs:
         description: bound parameter documentation
         url: https://opencagedata.com/api#bounds-param
       schema:
@@ -459,7 +459,7 @@ components:
       description: CSV list of lowercase two letter ISO 3166-1 Alpha 2 codes to limit results to that country/countries.
       in: query
       required: false
-      externalDocs:
+      x-externalDocs:
         description: countrycode parameter documentation
         url: https://opencagedata.com/api#countrycode-param
       schema:
@@ -474,7 +474,7 @@ components:
       description: wraps the returned JSON with a function name.
       in: query
       required: false
-      externalDocs:
+      x-externalDocs:
         description: jsonp parameter documentation
         url: https://opencagedata.com/api#jsonp-param
       schema:
@@ -489,7 +489,7 @@ components:
       name: language
       in: query
       required: false
-      externalDocs:
+      x-externalDocs:
         description: language parameter documentation
         url: https://opencagedata.com/api#language
       schema:
@@ -504,7 +504,7 @@ components:
       description: maximum number of results to return. Default is 10. Maximum is 100.
       in: query
       required: false
-      externalDocs:
+      x-externalDocs:
         description: limit parameter documentation
         url: https://opencagedata.com/api#limit-param
       schema:
@@ -519,7 +519,7 @@ components:
       description: when true annotations are not added to results.
       in: query
       required: false
-      externalDocs:
+      x-externalDocs:
         description: no_annotations parameter documentation
         url: https://opencagedata.com/api#no_annotations-param
       schema:
@@ -530,7 +530,7 @@ components:
       description: when true results are not deduplicated
       in: query
       required: false
-      externalDocs:
+      x-externalDocs:
         description: no_dedupe parameter documentation
         url: https://opencagedata.com/api#no_dedupe-param
       schema:
@@ -541,7 +541,7 @@ components:
       description: when true query content is not logged
       in: query
       required: false
-      externalDocs:
+      x-externalDocs:
         description: no_record parameter documentation
         url: https://opencagedata.com/api#no_record-param
       schema:
@@ -552,7 +552,7 @@ components:
       description: when true results are pretty printed
       in: query
       required: false
-      externalDocs:
+      x-externalDocs:
         description: pretty parameter documentation
         url: https://opencagedata.com/api#pretty-param
       schema:
@@ -563,7 +563,7 @@ components:
       description: lat,lng to bias results
       in: query
       required: false
-      externalDocs:
+      x-externalDocs:
         description: proximity parameter documentation
         url: https://opencagedata.com/api#proximity-param
       schema:
@@ -579,7 +579,7 @@ components:
       description: when true we geocode to nearest road, include roadinfo annotation
       in: query
       required: false
-      externalDocs:
+      x-externalDocs:
         description: roadinfo parameter documentation
         url: https://opencagedata.com/api#roadinfo-param
       schema:
@@ -588,7 +588,7 @@ components:
   headers:
     ratelimit-limit:
       description: '**Non-subscription customers only.** Total number of API requests your account is limited to over given time period (24 hours for free trials).'
-      externalDocs:
+      x-externalDocs:
         description: rate limit documentation
         url: https://opencagedata.com/api#rate-limiting
       schema:
@@ -597,7 +597,7 @@ components:
           - 2500
     ratelimit-remaining:
       description: '**Non-subscription customers only.** The number of requests left for the time window.'
-      externalDocs:
+      x-externalDocs:
         description: rate limit documentation
         url: https://opencagedata.com/api#rate-limiting
       schema:
@@ -606,7 +606,7 @@ components:
           - 2498
     ratelimit-reset:
       description: '**Non-subscription customers only.** The UNIX timestamp at which the current rate limit window resets.'
-      externalDocs:
+      x-externalDocs:
         description: rate limit documentation
         url: https://opencagedata.com/api#rate-limiting
       schema:
